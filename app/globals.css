@@ -20,6 +20,8 @@
 html, body {
   margin: 0;
   min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background:
     radial-gradient(1200px 500px at 10% -10%, rgba(224, 177, 90, 0.08), transparent 50%),
     var(--bg);
@@ -518,13 +520,45 @@ mark.contrast {
 }
 
 @media (max-width: 980px) {
-  .top { align-items: flex-start; flex-direction: column; }
-  .top-note { text-align: left; }
-  textarea { min-height: 160px; }
+  .top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 14px 8px;
+  }
+  .top-note { text-align: left; font-size: 0.84rem; }
+  .composer { padding: 4px 14px 24px; place-items: start center; }
+  h1 { font-size: clamp(1.9rem, 9vw, 3rem); }
+  .lede { font-size: 1rem; margin-bottom: 16px; }
+  textarea { min-height: 180px; font-size: 1.02rem; }
   .readers { grid-template-columns: 1fr; }
-  .desk { grid-template-columns: 1fr; }
+  .actions { display: grid; grid-template-columns: 1fr; }
+  .primary, .ghost, .file { width: 100%; text-align: center; min-height: 44px; }
+  .desk {
+    grid-template-columns: 1fr;
+    padding: 0 12px 20px;
+    gap: 12px;
+  }
   .paper, .layer { max-height: none; }
-  .paper { max-height: 70dvh; }
-  .layer { max-height: none; }
-  .cards { max-height: 70dvh; }
+  .paper {
+    max-height: 62dvh;
+    padding: 18px 16px 24px;
+    border-radius: 14px;
+  }
+  .doc, .doc-title { overflow-wrap: anywhere; }
+  .doc-title { font-size: 1.35rem; }
+  .layer { border-radius: 14px; }
+  .layer-head h2 { font-size: 1.3rem; }
+  .cards { max-height: none; }
+  .simple, .quote { overflow-wrap: anywhere; }
+  .claim-row { flex-direction: column; }
+  .claim-row .primary { width: 100%; }
+  .checker { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 420px) {
+  .brand-name { font-size: 1.15rem; }
+  .sheet { border-radius: 14px; }
+  textarea { min-height: 150px; padding: 14px 12px 6px; }
+  .mini { padding: 8px 10px; }
 }

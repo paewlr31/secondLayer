@@ -1,5 +1,5 @@
 import { assessSegment } from "../../../lib/ground.mjs";
-import { chatJson, publicError } from "../../../lib/openai.mjs";
+import { chatJson, publicError } from "../../../lib/model.mjs";
 import { REWRITE_SYSTEM } from "../../../lib/prompts.mjs";
 import { readerById } from "../../../lib/sample.mjs";
 
@@ -36,7 +36,7 @@ export async function POST(request) {
     const parsed = await chatJson({
       system: REWRITE_SYSTEM,
       user: `Czytelnik: ${reader.instruction}\n\nTekst źródłowy:\n${text}`,
-      maxTokens: 2200,
+      maxTokens: 4096,
     });
 
     const raw = Array.isArray(parsed.segments) ? parsed.segments : [];

@@ -1,4 +1,4 @@
-import { hasApiKey, readModelName } from "../../../lib/openai.mjs";
+import { hasApiKey, readModelName } from "../../../lib/model.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

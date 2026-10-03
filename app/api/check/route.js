@@ -1,5 +1,5 @@
 import { assessClaim } from "../../../lib/ground.mjs";
-import { chatJson, publicError } from "../../../lib/openai.mjs";
+import { chatJson, publicError } from "../../../lib/model.mjs";
 import { CHECK_SYSTEM } from "../../../lib/prompts.mjs";
 
 export const runtime = "nodejs";
@@ -29,7 +29,7 @@ export async function POST(request) {
     const parsed = await chatJson({
       system: CHECK_SYSTEM,
       user: `Zdanie:\n${claim}\n\nTekst źródłowy:\n${text}`,
-      maxTokens: 500,
+      maxTokens: 1024,
     });
 
     const result = assessClaim(text, claim, parsed);

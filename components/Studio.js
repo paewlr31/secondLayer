@@ -48,7 +48,7 @@ export default function Studio() {
     fetch("/api/health")
       .then((response) => response.json())
       .then(setHealth)
-      .catch(() => setHealth({ configured: false, model: "gpt-4o-mini" }));
+      .catch(() => setHealth({ configured: false, model: "gemini-3.8-flash" }));
   }, []);
 
   const shownId = hoverId || activeId;
@@ -199,7 +199,7 @@ export default function Studio() {
           <span className="brand-name">Druga warstwa</span>
         </button>
         <p className="top-note">
-          {health?.model ? `Model: ${health.model}` : "Model: gpt-4o-mini"}
+          {`Model: ${health?.model?.startsWith("gemini-") ? health.model : "gemini-3.8-flash"}`}
           <br />
           Każde zdanie ma wskazać fragment oryginału.
         </p>
@@ -285,12 +285,12 @@ export default function Studio() {
 
             {health && !health.configured && (
               <div className="keybox">
-                Brak klucza API. W pliku <strong>.env</strong> w tym folderze wpisz OPENAI_API_KEY, zapisz i uruchom ponownie <strong>npm run dev</strong>.
+                Brak klucza API. W pliku <strong>.env</strong> w tym folderze wpisz GEMINI_API_KEY, zapisz i uruchom ponownie <strong>npm run dev</strong>.
               </div>
             )}
             {error && <div className="error" role="alert">{error}</div>}
             <p className="fine">
-              Prostsze zdania układa model OpenAI. Zanim zdanie zostanie pokazane jako fakt, aplikacja szuka cytatu w oryginale.
+              Prostsze zdania układa darmowy model Gemini. Zanim zdanie zostanie pokazane jako fakt, aplikacja szuka cytatu w oryginale.
               Tekst jest wysyłany do API. To nie jest porada prawna.
             </p>
           </div>

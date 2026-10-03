@@ -4,7 +4,7 @@ Trudny tekst zostaje po lewej. Po prawej jest prostsza wersja. Każde zdanie mus
 
 ## Uruchomienie
 
-Potrzebny jest Node 20 i klucz OpenAI.
+Potrzebny jest Node 20 i darmowy klucz Gemini z Google AI Studio.
 
 ```powershell
 cd C:\Users\pryce\Desktop\praca\hackaton
@@ -14,8 +14,8 @@ npm install
 W pliku `.env` wpisz:
 
 ```
-OPENAI_API_KEY=sk-...
-OPENAI_MODEL=gpt-4o-mini
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-3.8-flash
 ```
 
 Potem:
@@ -38,6 +38,6 @@ Można wkleić własny tekst albo wczytać `.txt` / PDF z warstwą tekstu.
 - `app/api/extract` — tekst z PDF
 - `lib/ground.mjs` — szukanie cytatu w oryginale
 
-Tekst jest wysyłany do API OpenAI. To nie jest porada prawna.
+Tekst jest wysyłany do API Gemini. To nie jest porada prawna.
 
 Regulamin HackYeah każe oddzielić pracę sprzed startu (3 października, 23:00) od pracy z hackathonu i nie przedstawiać gotowca sprzed czasu jako projektu zrobionego na miejscu. Jeśli ten kod powstanie przed startem, napiszcie to w zgłoszeniu.
